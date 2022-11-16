@@ -9,12 +9,25 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 a {
     text-decoration: none;
+    color: #222;
 }
 
 div {
     box-sizing: border-box;
+}
+
+nav {
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 4px 3px;
 }
 
 /* 搜索模块 */
@@ -32,20 +45,32 @@ div {
     min-width: 320px;
     max-width: 540px;
     height: 44px;
-    /* background-color: pink; */
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 .search {
+    display: flex;
     height: 26px;
     border: 1px solid #ccc;
     flex: 1;
     margin: 7px 10px;
     border-radius: 5px;
-
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+.search::before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -59px -280px;
+    background-size: 104px auto;
+    margin: 5px;
+}
+
 .user {
     width: 44px;
     height: 44px;
-    /* background-color: purple; */
     font-size: 12px;
     text-align: center;
     color: #2eaae0;
@@ -56,62 +81,101 @@ div {
     display: block;
     width: 23px;
     height: 23px;
-    background: url(../images/sprite.png) no-repeat -12px -151px;
-    background-size: 48px auto;
-    margin: 3px auto 0;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 3px auto -1px;
 }
 
-.overview {
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-    border-radius: 10px;
-    margin: 5px;
+/* focus */
+.focus {
+    padding-top: 44px;
 }
-.overview span {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    border-right: 1px solid #f2f2f2;
+.focus img {
+    width: 100%;
 }
 
-.options {
+/* local travel navigation */
+.local-nav {
     display: flex;
-    justify-content: center;
+    height: 64px;
     background-color: #fff;
-    border-radius: 10px;
-    margin: 5px;
+    margin: 3px 4px;
+    border-radius: 8px;
 }
-.options .category {
+
+.local-nav li {
     flex: 1;
-    display: inline-flex;
-    flex-flow: column nowrap;
+}
+
+.local-nav a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 12px;
+}
+
+.local-nav li [class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+.local-nav li .local-nav-icon-icon2 {
+    background-position: 0 -32px;
+}
+
+.local-nav li .local-nav-icon-icon3 {
+    background-position: 0 -64px;
+}
+
+.local-nav li .local-nav-icon-icon4 {
+    background-position: 0 -96px;
+}
+
+.local-nav li .local-nav-icon-icon5 {
+    background-position: 0 -128px;
+}
+
+/* main nav */
+.nav-common {
+    display: flex;
+    height: 88px;
+    background-color: pink;
+}
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-items a {
+    flex: 1;
     text-align: center;
-    height: 300px;
+    line-height: 44px;
+    color: #fff;
+    font-size: 14px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
-.options .category span:nth-child(1) {
-    flex: 1;
-    background-color: orange;
+
+.nav-items a:nth-child(1) {
+    border-bottom: 1px solid #fff;
 }
-.options .category span:nth-child(2) {
-    flex: 1;
-    background-color: lightblue;
+
+.nav-items:nth-child(1) a {
+    border: 0;
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
 }
-.options .category span:nth-child(3) {
-    flex: 1;
-    background-color: lightgreen;
-}
-.options .detail {
-    flex: 2;
-    display: inline-flex;
-    text-align: center;
-}
-.options .detail section {
-    flex: 1;
-    display: inline-flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-}
-.options .detail div:nth-child(1) {
-    /* background-color: orange; */
+
+/* select first two children */
+.nav-items:nth-child(-n + 2) {
+    border-right: 1px solid #fff;
 }
