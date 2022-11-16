@@ -9,6 +9,14 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
 /* 搜索模块 */
 .search-index {
     display: flex;
@@ -24,22 +32,33 @@ body {
     min-width: 320px;
     max-width: 540px;
     height: 44px;
-    background-color: pink;
+    /* background-color: pink; */
 }
 .search {
+    height: 26px;
+    border: 1px solid #ccc;
     flex: 1;
+    margin: 7px 10px;
+    border-radius: 5px;
+
 }
 .user {
     width: 44px;
     height: 44px;
-    background-color: purple;
+    /* background-color: purple; */
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+
 }
-.before::before {
+.user::before {
     content: "";
     display: block;
     width: 23px;
     height: 23px;
-    background: url(../images/sprite.png);
+    background: url(../images/sprite.png) no-repeat -12px -151px;
+    background-size: 48px auto;
+    margin: 3px auto 0;
 }
 
 .overview {
